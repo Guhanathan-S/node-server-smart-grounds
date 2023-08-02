@@ -65,9 +65,9 @@ function scheduleMessage(deviceTokens,deviceTokenKeys,title,content){
         };
         admin.messaging().sendEachForMulticast(message).then(async(response) => {
             console.log("message send sucessfuly");
-            if(response.failureCount != 0)
+            if(response.failureCount != 0){
               eventEmitter.emit('remove_tokens',deviceTokenKeys,response.responses);
-              console.log("event emitted");
+              console.log("event emitted");}
            return (
             {statuscode: 200,
              message : "message sent sucessfully"
